@@ -24,10 +24,10 @@ Thumbs.db
 
 
 
-.fast_api_learn.py
-.playwright.ipynb
-.result.md
-.sample.py
-.summary_agent.ipynb
+fast_api_learn.py
+playwright.ipynb
+result.md
+sample.py
+summary_agent.ipynb
 .deepeval/
 data/
