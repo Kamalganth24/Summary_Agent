@@ -246,7 +246,7 @@ Content:
 {content}
 """,
 
-    "Python Interview Questions": """
+    "Interview Questions": """
 You are a senior Python interviewer.
 
 Summarize and explain "{section}" in a way useful for interview preparation:

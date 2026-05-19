@@ -2,8 +2,8 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import uvicorn
 
-from main import extract_section_api, normalize, agent, langfuse
-from langfuse import observe,propagate_attributes
+from main import agent, langfuse
+from langfuse import propagate_attributes
 from langfuse.langchain import CallbackHandler
 import os
 
@@ -28,22 +28,7 @@ class ExtractRequest(BaseModel):
 def root():
     return {"Message":"Api is Running"}
 
-@app.post("/extract")
-async def extract_data(req_fields: ExtractRequest):
-    try:
-        raw = await extract_section_api(req_fields.url,req_fields.section)
 
-        if not raw:
-            raise HTTPException(status_code=404, detail="No API data captured")
-        
-        aft_normalize = normalize(raw["data"])
-
-        return{
-            "status" : "success",
-            "data" : aft_normalize
-        }
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
     
 
 @app.post("/llm_test")
